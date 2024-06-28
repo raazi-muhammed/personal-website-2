@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    background-color: black;
+}
+
+.noise {
+    background-image: url("/noise.png");
+    mix-blend-mode: screen;
+    opacity: 0.05;
+}
