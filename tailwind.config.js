@@ -4,17 +4,39 @@ export default {
     theme: {
         extend: {
             animation: {
-                blob: "blob 12s infinite",
+                blob: "blob 12s infinite linear",
+                blob2: "blob2 12s infinite linear",
             },
             keyframes: {
                 blob: {
                     "0%": {
-                        transform: "rotate(0deg) scale(1)",
-                        transformOrigin: "top left",
+                        transform: "translate(0px, 0px) scale(1)",
+                    },
+                    "25%": {
+                        transform: "translate(-15vw, 40vh) scale(1.1)",
+                    },
+                    "50%": {
+                        transform: "translate(15vw, 20vh) scale(1.3)",
+                    },
+                    "75%": {
+                        transform: "translate(5vw, 25vh) scale(1.1)",
                     },
                     "100%": {
-                        transform: "rotate(360deg) scale(1.0)",
-                        transformOrigin: "top left",
+                        transform: "translate(0px, 0px) scale(1)",
+                    },
+                },
+                blob2: {
+                    "0%": {
+                        transform: "translate(0px, 0px) scale(1)",
+                    },
+                    "33%": {
+                        transform: "translate(25vw, 20vh) scale(1.3)",
+                    },
+                    "66%": {
+                        transform: "translate(-25vw, 25vh) scale(1.1)",
+                    },
+                    "100%": {
+                        transform: "translate(0px, 0px) scale(1)",
                     },
                 },
             },

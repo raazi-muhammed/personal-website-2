@@ -1,11 +1,11 @@
 export default function App() {
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-neutral-950 text-white">
             <div className="relative w-full min-h-screen bg-[url(/bg.svg)] overflow-hidden flex flex-col justify-between py-16 mx-auto">
                 <div className="absolute container inset-0 w-full mx-auto h-screen">
-                    <div className="absolute top-[-40vh] left-[-40vh] size-[130vh] bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
-                    <div className="absolute top-[-40vh] left-[-40vh] size-[130vh] bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2" />
-                    <div className="absolute top-[-40vh] left-[-40vh] size-[130vh] bg-fuchsia-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4" />
+                    <div className="absolute top-[-40vh] left-[20vh] size-[100vh] bg-indigo-700 rounded-full mix-blend-screen filter blur-3xl animate-blob" />
+                    <div className="absolute top-[-40vh] left-[-20vh] size-[100vh] bg-purple-700 rounded-full mix-blend-screen filter blur-3xl animate-blob2" />
+                    {/*  <div className="absolute top-[-40vh] left-[-40vh] size-[130vh] bg-violet-950 rounded-full mix-blend-plus-lighter filter blur-3xl animate-blob animation-delay-4" /> */}
                 </div>
 
                 <div className="container mx-auto flex gap-4 underline font-mono">
