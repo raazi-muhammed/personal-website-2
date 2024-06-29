@@ -1,6 +1,7 @@
 import { ReactNode, useState } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon, MailIcon } from "../utils/icons";
+import Container from "../components/Container";
 
 function AnimatedBalls() {
     return (
@@ -45,22 +46,22 @@ function LinkButton({
 
 export default function Hero() {
     return (
-        <div className="relative mx-auto flex min-h-screen w-full flex-col justify-between overflow-hidden py-16">
+        <div className="relative mx-auto flex min-h-screen w-full flex-col justify-between overflow-hidden p-8 py-16">
             <div className="noise pointer-events-none fixed inset-0" />
             <AnimatedBalls />
             <div className="container mx-auto flex gap-4 font-mono">
                 <p>&lt;/&gt;</p>
             </div>
 
-            <div className="container mx-auto flex flex-col justify-center">
-                <h1 className="-ms-2 font-mono text-9xl font-semibold">
+            <Container className="flex flex-col justify-center">
+                <h1 className="font-mono text-4xl font-semibold sm:text-6xl lg:text-8xl xl:text-9xl">
                     Raazi Muhammed
                 </h1>
                 <p className="font-mono text-xl">
                     Full Stack developer with a strong background in graphic
                     design.
                 </p>
-            </div>
+            </Container>
             <section className="container mx-auto flex gap-4">
                 <LinkButton
                     href="https://www.linkedin.com/in/raazimuhammed"
