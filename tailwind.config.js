@@ -22,7 +22,7 @@ export default {
                     DEFAULT: "#2D2D3E",
                 },
                 secondary: {
-                    DEFAULT: "#0B0520",
+                    DEFAULT: "#232323",
                     foreground: "#000",
                 },
                 muted: {

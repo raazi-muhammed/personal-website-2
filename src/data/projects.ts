@@ -3,6 +3,7 @@ export const projects: {
     description: string;
     date: string;
     preview?: string;
+    mockup?: string;
     readmeMeLink: string;
     links: {
         gitHub?: string;
@@ -11,7 +12,7 @@ export const projects: {
     content?: {
         story: string;
         features: string[];
-        teachStack?: string;
+        teachStack: string;
     };
 }[] = [
     {
@@ -20,6 +21,7 @@ export const projects: {
             "Project Toolkit for Effortless Planning and Management of Projects.",
         date: "Mar 2024 - Present",
         preview: "/images/homepage/omniflow-preview.png",
+        mockup: "/images/mockups/omniflow.png",
         readmeMeLink: "/markdown/projects/omniflow.md",
         links: {
             gitHub: "https://github.com/raazi-muhammed/omniflow",
@@ -45,13 +47,14 @@ export const projects: {
             "An AI based typing assistance that checks your typing speed and accuracy",
         date: "May 2024 - May 2024",
         preview: "/images/homepage/key-sense-ai.png",
+        mockup: "/images/mockups/key-sense-ai.png",
         readmeMeLink: "/markdown/projects/key-sense-ai.md",
         links: {
             gitHub: "https://github.com/raazi-muhammed/key-sense-ai",
             liveUrl: "https://key-sense-ai.vercel.app/",
         },
         content: {
-            story: "Shop Nexus is a multi-vendor E-commerce application that includes features such as a wallet, payment, cart, order management, referral programs, events, reports, chat, coupons, checkout and reviews.",
+            story: "An AI based typing assistance that checks your typing speed and accuracy.",
             features: [
                 "AI typing test that checks your typing speed and accuracy.",
                 "The AI identifies letters you struggle with and creates tests focusing on those letters.",
@@ -68,6 +71,7 @@ export const projects: {
             "A comprehensive Multi-Vendor E-Commerce platform facilitating buying and selling of products",
         date: "Sep 2023 - Nov 2023",
         preview: "/images/homepage/shop-nexus-preview.png",
+        mockup: "/images/mockups/shop-nexus.png",
         readmeMeLink: "/markdown/projects/shop-nexus.md",
         links: {
             gitHub: "https://github.com/raazi-muhammed/shop-nexus",
@@ -91,6 +95,7 @@ export const projects: {
         description: "Developed a npm package to connect two divs together",
         date: "Apr 2023 - Apr 2023",
         preview: "/images/homepage/react-connect-div.png",
+        mockup: "/images/mockups/react-connect-div.png",
         readmeMeLink: "/markdown/projects/react-connect-div.md",
         links: {
             gitHub: "https://github.com/raazi-muhammed/react-connect-div",
@@ -102,12 +107,14 @@ export const projects: {
                 "A lightweight npm package designed for connecting two HTML elements together with a line.",
                 "Add options for changing the line color, thickness and border radius, etc.. ensuring seamless integration with your application's design aesthetic.",
             ],
+            teachStack: "React, SVG, NPM",
         },
     },
     {
         name: "Alma Foods",
         readmeMeLink: "/markdown/projects/alma-foods.md",
         preview: "/images/homepage/alma-foods.png",
+        mockup: "/images/mockups/alma-foods.png",
         description:
             "Converted a HTML, CSS, JS website into React + Typescript",
         date: "Jan 2024 - Jan 2024",
@@ -131,8 +138,8 @@ export const projects: {
         description: "A score-tracking app with features like",
         date: "Mar 2024 - Mar 2024",
         preview: "/images/homepage/rastreo-preview.png",
+        mockup: "/images/mockups/rastreo.png",
         readmeMeLink: "/markdown/projects/rastreo.md",
-
         links: {
             gitHub: "https://github.com/raazi-muhammed/rastreo",
             liveUrl: "https://rastreo-rmk.netlify.app/",
@@ -154,13 +161,14 @@ export const projects: {
             "Using this project anyone can explore diverse sorting algorithms like Insertion, Bubble, Selection, Quick, and Merge",
         date: "Dec 2023 - Dec 2023",
         preview: "/images/homepage/sorting-visualizer-preview.png",
+        mockup: "/images/mockups/sorting-visualizer.png",
         readmeMeLink: "/markdown/projects/sorting-visualizer.md",
         links: {
             gitHub: "https://github.com/raazi-muhammed/sorting-visualizer",
             liveUrl: "https://sorting-visualizer-rmk.netlify.app/",
         },
         content: {
-            story: "asdfas",
+            story: "While learning data structures and algorithms, I found a sorting visualizer app and trying to create by own. The journey of constructing and utilizing this project has been highly rewarding. While delving into the intricacies of sorting algorithms, Sorting Visualizer has served as a valuable tool for visualization, enhancing my understanding of sorting algorithms.",
             features: [
                 "Adjust delay and array length for control.",
                 "Device-based theme switching.",

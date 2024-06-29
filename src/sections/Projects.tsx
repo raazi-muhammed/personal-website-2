@@ -1,18 +1,18 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import Card from "../components/Card";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
 import { GithubIcon, LiveLinkIcon } from "../utils/icons";
+import { FaCode, FaQuestion } from "react-icons/fa";
+import { IoSparkles } from "react-icons/io5";
 
 function ProjectPoints({
-    heading,
-    count,
+    type,
     children,
 }: {
-    heading: string;
-    count: number;
+    type: "story" | "features" | "teachStack";
     children: ReactNode;
 }) {
     return (
@@ -23,17 +23,33 @@ function ProjectPoints({
                     opacity: 0.1,
                 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ amount: "all", once: true }}
+                viewport={{ margin: "-200px", once: true }}
                 className="w-full">
-                <section className="align-center flex gap-2">
+                <section className="align-center mb-2 flex gap-2">
                     <div className="flex size-12 justify-center rounded-full bg-primary-accent align-middle text-primary">
                         <span className="m-auto font-mono text-2xl font-semibold">
-                            {count}
+                            {type === "story" ? (
+                                <FaQuestion />
+                            ) : type === "features" ? (
+                                <IoSparkles />
+                            ) : (
+                                <FaCode />
+                            )}
                         </span>
                     </div>
-                    <p className="my-auto font-mono text-3xl font-semibold">
-                        {heading}
-                    </p>
+                    {type === "story" ? (
+                        <p className="my-auto font-mono text-3xl font-semibold">
+                            Story
+                        </p>
+                    ) : type === "features" ? (
+                        <p className="my-auto font-mono text-3xl font-semibold">
+                            Features
+                        </p>
+                    ) : (
+                        <p className="my-auto font-mono text-3xl font-semibold">
+                            Teach Stack
+                        </p>
+                    )}
                 </section>
                 {children}
             </motion.div>
@@ -45,38 +61,61 @@ export default function Projects() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
     const currentProject = projects[currentProjectIndex];
 
+    const divRef = useRef<HTMLDivElement | null>(null);
+
+    const scrollToElement = () => {
+        const { current } = divRef;
+        if (current) {
+            current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
     return (
         <div>
             <Container className="py-12">
                 <Heading>Projects</Heading>
+                <div ref={divRef} />
                 <section className="sticky -top-24 flex gap-4 py-6 backdrop-blur-lg">
                     {projects.map((projects, index) => (
-                        <Card
-                            className="w-56 p-0"
-                            onClick={() => setCurrentProjectIndex(index)}>
-                            <img
-                                className="h-24 w-full rounded-t object-cover"
-                                src={projects.preview}
-                                alt=""
-                            />
-                            <div className="p-3">
-                                <p className="line-clamp-1 font-mono">
-                                    {projects.name}
-                                </p>
-                                <small className="line-clamp-2 text-muted-foreground">
-                                    {projects.description}
-                                </small>
-                            </div>
-                        </Card>
+                        <motion.div
+                            initial={{ scale: 0.95 }}
+                            whileInView={{ scale: 1 }}
+                            whileTap={{ scale: 0.95 }}
+                            whileHover={{ scale: 1.05 }}
+                            viewport={{ amount: "all", once: true }}>
+                            <Card
+                                className="w-56 p-0"
+                                onClick={() => {
+                                    scrollToElement();
+                                    setCurrentProjectIndex(index);
+                                }}>
+                                <img
+                                    className="h-24 w-full rounded-t object-cover"
+                                    src={projects.preview}
+                                    alt=""
+                                />
+                                <div className="p-3">
+                                    <p className="line-clamp-1 font-mono">
+                                        {projects.name}
+                                    </p>
+                                    <small className="line-clamp-2 text-muted-foreground">
+                                        {projects.description}
+                                    </small>
+                                </div>
+                            </Card>
+                        </motion.div>
                     ))}
                 </section>
                 <section
                     className="static grid grid-cols-3 gap-12"
                     key={currentProjectIndex.toString()}>
-                    <aside className="sticky top-36 flex h-fit flex-col">
+                    <motion.aside
+                        className="sticky top-36 flex h-fit flex-col"
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ opacity: 1, y: 0 }}>
                         <img
-                            className="h-96 w-full rounded object-cover"
-                            src={currentProject.preview}
+                            className="mb-6 w-full origin-top-left scale-105 rounded object-cover"
+                            src={currentProject.mockup}
                             alt=""
                         />
                         <h4 className="mt-4 font-mono text-xl">
@@ -104,28 +143,30 @@ export default function Projects() {
                                 </a>
                             </section>
                         </div>
-                    </aside>
+                    </motion.aside>
                     <section className="col-span-2 py-24">
-                        <ProjectPoints count={1} heading="Why?">
-                            <p className="p-4 text-xl">
+                        <ProjectPoints type="story">
+                            <p className="text-xl">
                                 {currentProject.content?.story}
                             </p>
                         </ProjectPoints>
-                        <ProjectPoints count={2} heading="Features">
+                        <ProjectPoints type="features">
                             <section className="grid gap-2">
                                 {currentProject.content?.features.map(
                                     (feature, index) => (
-                                        <section className="flex gap-2 rounded bg-muted p-2">
+                                        <section className="flex gap-2 rounded bg-secondary p-2">
                                             <div className="grid size-8 place-items-center rounded bg-black">
                                                 {index + 1}
                                             </div>
-                                            <p className="my-auto">{feature}</p>
+                                            <p className="my-auto w-full">
+                                                {feature}
+                                            </p>
                                         </section>
                                     )
                                 )}
                             </section>
                         </ProjectPoints>
-                        <ProjectPoints count={3} heading="Tech Stack">
+                        <ProjectPoints type="teachStack">
                             <p className="p-2">
                                 {currentProject.content?.teachStack}
                             </p>

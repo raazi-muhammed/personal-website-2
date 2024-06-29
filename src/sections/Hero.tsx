@@ -46,7 +46,7 @@ function LinkButton({
 export default function Hero() {
     return (
         <div className="relative mx-auto flex min-h-screen w-full flex-col justify-between overflow-hidden py-16">
-            <div className="noise pointer-events-none absolute inset-0" />
+            <div className="noise pointer-events-none fixed inset-0" />
             <AnimatedBalls />
             <div className="container mx-auto flex gap-4 font-mono">
                 <p>&lt;/&gt;</p>
