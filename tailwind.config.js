@@ -3,6 +3,20 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            borderRadius: {
+                DEFAULT: "1rem",
+            },
+            colors: {
+                primary: {
+                    DEFAULT: "#fff",
+                },
+                background: {
+                    DEFAULT: "#0a0a0a",
+                },
+                foreground: {
+                    DEFAULT: "#ffffff",
+                },
+            },
             animation: {
                 blob: "blob 12s infinite linear",
                 blob2: "blob2 12s infinite linear",
