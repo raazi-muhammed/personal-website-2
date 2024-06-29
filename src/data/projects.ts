@@ -20,7 +20,7 @@ export const projects: {
         description:
             "Project Toolkit for Effortless Planning and Management of Projects.",
         date: "Mar 2024 - Present",
-        preview: "/images/homepage/omniflow-preview.png",
+        preview: "/images/homepage/omniflow.webp",
         mockup: "/images/mockups/omniflow.png",
         readmeMeLink: "/markdown/projects/omniflow.md",
         links: {
@@ -46,7 +46,7 @@ export const projects: {
         description:
             "An AI based typing assistance that checks your typing speed and accuracy",
         date: "May 2024 - May 2024",
-        preview: "/images/homepage/key-sense-ai.png",
+        preview: "/images/homepage/key-sense-ai.webp",
         mockup: "/images/mockups/key-sense-ai.png",
         readmeMeLink: "/markdown/projects/key-sense-ai.md",
         links: {
@@ -70,7 +70,7 @@ export const projects: {
         description:
             "A comprehensive Multi-Vendor E-Commerce platform facilitating buying and selling of products",
         date: "Sep 2023 - Nov 2023",
-        preview: "/images/homepage/shop-nexus-preview.png",
+        preview: "/images/homepage/shop-nexus.webp",
         mockup: "/images/mockups/shop-nexus.png",
         readmeMeLink: "/markdown/projects/shop-nexus.md",
         links: {
@@ -94,7 +94,7 @@ export const projects: {
         name: "NPM: React Connect Div",
         description: "Developed a npm package to connect two divs together",
         date: "Apr 2023 - Apr 2023",
-        preview: "/images/homepage/react-connect-div.png",
+        preview: "/images/homepage/react-connect-div.webp",
         mockup: "/images/mockups/react-connect-div.png",
         readmeMeLink: "/markdown/projects/react-connect-div.md",
         links: {
@@ -113,7 +113,7 @@ export const projects: {
     {
         name: "Alma Foods",
         readmeMeLink: "/markdown/projects/alma-foods.md",
-        preview: "/images/homepage/alma-foods.png",
+        preview: "/images/homepage/alma-foods.webp",
         mockup: "/images/mockups/alma-foods.png",
         description:
             "Converted a HTML, CSS, JS website into React + Typescript",
@@ -137,7 +137,7 @@ export const projects: {
         name: "Rastreo",
         description: "A score-tracking app with features like",
         date: "Mar 2024 - Mar 2024",
-        preview: "/images/homepage/rastreo-preview.png",
+        preview: "/images/homepage/rastreo.webp",
         mockup: "/images/mockups/rastreo.png",
         readmeMeLink: "/markdown/projects/rastreo.md",
         links: {
@@ -160,7 +160,7 @@ export const projects: {
         description:
             "Using this project anyone can explore diverse sorting algorithms like Insertion, Bubble, Selection, Quick, and Merge",
         date: "Dec 2023 - Dec 2023",
-        preview: "/images/homepage/sorting-visualizer-preview.png",
+        preview: "/images/homepage/sorting-visualizer.webp",
         mockup: "/images/mockups/sorting-visualizer.png",
         readmeMeLink: "/markdown/projects/sorting-visualizer.md",
         links: {

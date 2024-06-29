@@ -119,6 +119,7 @@ export default function Projects() {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ opacity: 1, y: 0 }}>
                     <img
+                        loading="lazy"
                         className="mb-6 w-full rounded object-cover"
                         src={currentProject.mockup}
                         alt=""
