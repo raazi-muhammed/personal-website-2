@@ -8,13 +8,26 @@ export default {
             },
             colors: {
                 primary: {
-                    DEFAULT: "#fff",
+                    DEFAULT: "#5045CE",
+                    foreground: "#fff",
+                    accent: "#291638",
                 },
                 background: {
                     DEFAULT: "#0a0a0a",
                 },
                 foreground: {
                     DEFAULT: "#ffffff",
+                },
+                card: {
+                    DEFAULT: "#2D2D3E",
+                },
+                secondary: {
+                    DEFAULT: "#0B0520",
+                    foreground: "#000",
+                },
+                muted: {
+                    DEFAULT: "#0B0520",
+                    foreground: "#bfbfbf",
                 },
             },
             animation: {
