@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { projects } from "../data/projects";
 import { motion } from "framer-motion";
+import { GithubIcon, LiveLinkIcon } from "../utils/icons";
 
 function ProjectPoints({
     heading,
@@ -18,9 +19,10 @@ function ProjectPoints({
         <div className="grid min-h-[40vh] w-full place-items-center">
             <motion.div
                 initial={{
-                    scale: 0.5,
+                    scale: 0.95,
+                    opacity: 0.1,
                 }}
-                whileInView={{ scale: 1 }}
+                whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ amount: "all", once: true }}
                 className="w-full">
                 <section className="align-center flex gap-2">
@@ -47,7 +49,7 @@ export default function Projects() {
         <div>
             <Container className="py-12">
                 <Heading>Projects</Heading>
-                <section className="sticky -top-24 flex gap-4 py-4">
+                <section className="sticky -top-24 flex gap-4 py-6 backdrop-blur-lg">
                     {projects.map((projects, index) => (
                         <Card
                             className="w-56 p-0"
@@ -84,68 +86,51 @@ export default function Projects() {
                             {currentProject.description}
                         </p>
                         <hr className="my-4 text-muted" />
-                        <div className="flex flex-col">
-                            {currentProject.links.map((link) => (
-                                <a href={link.url}>{link.name}</a>
-                            ))}
+                        <div className="flex gap-4">
+                            <section className="flex gap-2">
+                                <GithubIcon />
+                                <a
+                                    href={currentProject.links.gitHub}
+                                    className="my-auto underline">
+                                    Github
+                                </a>
+                            </section>
+                            <section className="flex gap-2">
+                                <LiveLinkIcon />
+                                <a
+                                    href={currentProject.links.gitHub}
+                                    className="my-auto underline">
+                                    Live link
+                                </a>
+                            </section>
                         </div>
                     </aside>
                     <section className="col-span-2 py-24">
                         <ProjectPoints count={1} heading="Why?">
                             <p className="p-4 text-xl">
-                                When creating several project One of the
-                                problems i facied was hopiong between apps to
-                                manage and plan the project. and when i talked
-                                with my peers they too had the same problem so i
-                                decided to solve this problem my bringing all
-                                the project planning and managment in one place
+                                {currentProject.content?.story}
                             </p>
                         </ProjectPoints>
                         <ProjectPoints count={2} heading="Features">
                             <section className="grid gap-2">
-                                <section className="flex gap-2 rounded bg-muted p-2">
-                                    <div className="grid size-8 place-items-center rounded bg-black">
-                                        1
-                                    </div>
-                                    <p className="my-auto">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Mollitia consectetur
-                                        explicabo suscipit a inventore veniam
-                                        autem asperiores?
-                                    </p>
-                                </section>
-                                <section className="flex gap-2 rounded bg-muted p-2">
-                                    <div className="grid size-8 place-items-center rounded bg-black">
-                                        1
-                                    </div>
-                                    <p className="my-auto">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Alias, repellat. Rerum
-                                        iure
-                                    </p>
-                                </section>
-                                <section className="flex gap-2 rounded bg-muted p-2">
-                                    <div className="grid size-8 place-items-center rounded bg-black">
-                                        1
-                                    </div>
-                                    <p className="my-auto">
-                                        Eius quas consequuntur, incidunt ipsum
-                                        provident veritatis perferendis aliquam
-                                        nisi animi, iusto aliquid?
-                                    </p>
-                                </section>
+                                {currentProject.content?.features.map(
+                                    (feature, index) => (
+                                        <section className="flex gap-2 rounded bg-muted p-2">
+                                            <div className="grid size-8 place-items-center rounded bg-black">
+                                                {index + 1}
+                                            </div>
+                                            <p className="my-auto">{feature}</p>
+                                        </section>
+                                    )
+                                )}
                             </section>
                         </ProjectPoints>
                         <ProjectPoints count={3} heading="Tech Stack">
-                            <p className="p-4 text-xl">
-                                When creating several project One of the
-                                problems i facied was hopiong between apps to
-                                manage and plan the project. and when i talked
-                                with my peers they too had the same problem so i
-                                decided to solve this problem my bringing all
-                                the project planning and managment in one place
+                            <p className="p-2">
+                                {currentProject.content?.teachStack}
                             </p>
                         </ProjectPoints>
+                        <div></div>
                     </section>
                 </section>
             </Container>

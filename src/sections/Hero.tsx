@@ -1,10 +1,6 @@
 import { ReactNode, useState } from "react";
-import {
-    FaGithub as GithubIcon,
-    FaLinkedinIn as LinkedinIcon,
-} from "react-icons/fa";
-import { IoMail as MailIcon } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { GithubIcon, LinkedinIcon, MailIcon } from "../utils/icons";
 
 function AnimatedBalls() {
     return (
@@ -69,17 +65,17 @@ export default function Hero() {
                 <LinkButton
                     href="https://www.linkedin.com/in/raazimuhammed"
                     username="raazimuhammed">
-                    <LinkedinIcon className="my-auto" size={"1.3em"} />
+                    <LinkedinIcon />
                 </LinkButton>
                 <LinkButton
                     href="https://github.com/raazi-muhammed"
                     username="raazi-muhammed">
-                    <GithubIcon className="my-auto" size={"1.3em"} />
+                    <GithubIcon />
                 </LinkButton>
                 <LinkButton
                     href="mailto:raazi6163@gmail.com"
                     username="raazi6163@gmail.com">
-                    <MailIcon className="my-auto" size={"1.3em"} />
+                    <MailIcon />
                 </LinkButton>
             </section>
         </div>
