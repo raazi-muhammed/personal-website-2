@@ -2,43 +2,48 @@ import { ReactNode, useState } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon, MailIcon } from "../utils/icons";
 import Container from "../components/Container";
-import { defaultAnimation } from "../utils/animation";
 import { AnimatedBallsHero } from "../components/AnimatedBalls";
 
 function LinkButton({
     href,
     children,
-    username,
+    icon,
+    title,
 }: {
     href: string;
     children: ReactNode;
-    username: string;
+    icon: ReactNode;
+    title: string;
 }) {
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <a href={href} className="relative">
-            {isActive ? (
+        <div
+            className="relative size-8"
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}>
+            <a href={href} className="absolute bottom-0 left-0 mt-auto">
                 <motion.div
-                    initial={{ originX: 0, originY: 1.2, scale: 0.5 }}
-                    animate={{ scale: 1 }}
-                    className="absolute bottom-12 flex gap-2 text-nowrap rounded border border-foreground/15 bg-foreground/10 p-2 pe-4 align-middle">
-                    {children}
-                    {username}
+                    layout
+                    initial={{ y: 0 }}
+                    animate={{ y: isActive ? -20 : 0 }}
+                    className={`relative z-50 flex gap-2 bg-white/10 border-white/20 border rounded backdrop-blur-sm ${
+                        isActive ? "z-40 p-2" : "z-0"
+                    }`}>
+                    <div className="my-auto grid size-8 place-items-center rounded-full">
+                        {icon}
+                    </div>
+                    {isActive && (
+                        <motion.div className="flex flex-col gap-0 pe-2">
+                            <p className="text-xs uppercase text-muted-foreground">
+                                {title}
+                            </p>
+                            {children}
+                        </motion.div>
+                    )}
                 </motion.div>
-            ) : null}
-            <motion.div
-                variants={defaultAnimation}
-                initial="initial"
-                animate="animate"
-                whileHover="hover"
-                whileTap="tap"
-                onMouseEnter={() => setIsActive(true)}
-                onMouseLeave={() => setIsActive(false)}
-                className="animate-pulse rounded-full border border-foreground/15 bg-foreground/10 p-2 backdrop-blur-sm hover:animate-none">
-                {children}
-            </motion.div>
-        </a>
+            </a>
+        </div>
     );
 }
 
@@ -50,7 +55,6 @@ export default function Hero() {
             <div className="container mx-auto flex gap-4 font-mono">
                 <p>&lt;/&gt;</p>
             </div>
-
             <Container className="flex flex-col justify-center">
                 <h1 className="font-mono text-4xl font-semibold sm:text-6xl lg:text-8xl xl:text-9xl">
                     Raazi Muhammed
@@ -63,18 +67,21 @@ export default function Hero() {
             <section className="container mx-auto flex gap-4">
                 <LinkButton
                     href="https://www.linkedin.com/in/raazimuhammed"
-                    username="raazimuhammed">
-                    <LinkedinIcon />
+                    title="Linkedin"
+                    icon={<LinkedinIcon />}>
+                    <span className="text-nowrap">raazimuhammed</span>
                 </LinkButton>
                 <LinkButton
                     href="https://github.com/raazi-muhammed"
-                    username="raazi-muhammed">
-                    <GithubIcon />
+                    title="GitHub"
+                    icon={<GithubIcon />}>
+                    <span className="text-nowrap">raazi-muhammed</span>
                 </LinkButton>
                 <LinkButton
-                    href="mailto:raazi6163@gmail.com"
-                    username="raazi6163@gmail.com">
-                    <MailIcon />
+                    href="https://www.linkedin.com/in/raazimuhammed"
+                    title="Email"
+                    icon={<MailIcon />}>
+                    <span className="text-nowrap">raazi6163@gmail.com</span>
                 </LinkButton>
             </section>
         </div>
