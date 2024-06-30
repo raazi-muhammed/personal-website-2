@@ -11,6 +11,7 @@ export default {
                     DEFAULT: "#5045CE",
                     foreground: "#fff",
                     accent: "#291638",
+                    light: "#5343fa",
                 },
                 background: {
                     DEFAULT: "#0a0a0a",

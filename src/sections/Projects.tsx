@@ -7,14 +7,49 @@ import { motion } from "framer-motion";
 import { GithubIcon, LiveLinkIcon } from "../utils/icons";
 import { FaCode, FaQuestion } from "react-icons/fa";
 import { IoSparkles } from "react-icons/io5";
-import { defaultAnimation } from "../utils/animation";
+import {
+    blobAnimation,
+    blobTransition,
+    defaultAnimation,
+} from "../utils/animation";
 
 function AnimatedBalls() {
     return (
         <div className="container absolute inset-0 -z-20 mx-auto h-full w-full">
-            <div className="absolute left-[20vh] top-[0vh] size-[20vh] animate-blob rounded-full bg-indigo-700 mix-blend-screen blur-3xl filter" />
-            <div className="absolute left-[-5vh] top-[0vh] size-[20vh] animate-blob2 rounded-full bg-purple-700 mix-blend-screen blur-3xl filter" />
+            <motion.div
+                variants={blobAnimation}
+                animate="animate1"
+                transition={blobTransition}
+                className="absolute left-[20vh] top-[0vh] size-[20vh] rounded-full bg-indigo-700 mix-blend-screen blur-3xl filter"
+            />
+            <motion.div
+                variants={blobAnimation}
+                animate="animate2"
+                transition={blobTransition}
+                className="absolute left-[-5vh] top-[0vh] size-[20vh] rounded-full bg-purple-700 mix-blend-screen blur-3xl filter"
+            />
         </div>
+    );
+}
+
+function ProjectLink({
+    href,
+    children,
+}: {
+    href: string | undefined;
+    children: ReactNode;
+}) {
+    return (
+        <motion.a
+            variants={defaultAnimation}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+            whileTap="tap"
+            href={href}
+            className="flex gap-2 rounded bg-primary-accent px-2 py-1 pe-4 text-primary-light hover:animate-pulse">
+            {children}
+        </motion.a>
     );
 }
 
@@ -127,8 +162,14 @@ export default function Projects() {
                 key={currentProjectIndex.toString()}>
                 <motion.aside
                     className="relative flex h-fit w-full flex-col lg:sticky lg:top-36"
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ opacity: 1, y: 0 }}>
+                    initial={{
+                        y: 100,
+                        opacity: 0,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        y: 0,
+                    }}>
                     <img
                         loading="lazy"
                         className="mb-6 w-full rounded object-cover"
@@ -145,22 +186,14 @@ export default function Projects() {
                         </p>
                         <hr className="my-4 me-4 text-muted" />
                         <div className="flex gap-4">
-                            <section className="flex gap-2">
+                            <ProjectLink href={currentProject.links.gitHub}>
                                 <GithubIcon />
-                                <a
-                                    href={currentProject.links.gitHub}
-                                    className="my-auto underline">
-                                    Github
-                                </a>
-                            </section>
-                            <section className="flex gap-2">
+                                Github
+                            </ProjectLink>
+                            <ProjectLink href={currentProject.links.gitHub}>
                                 <LiveLinkIcon />
-                                <a
-                                    href={currentProject.links.gitHub}
-                                    className="my-auto underline">
-                                    Live link
-                                </a>
-                            </section>
+                                Live link
+                            </ProjectLink>
                         </div>
                     </div>
                 </motion.aside>
