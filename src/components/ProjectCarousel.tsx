@@ -39,12 +39,12 @@ export function ProjectCarousel({
     }, []);
 
     return (
-        <section className="w-full overflow-hidden">
+        <section className="sticky -top-24 z-30 w-full backdrop-blur-lg">
             <div ref={divRef} />
             <Container>
                 <section
                     ref={carousel}
-                    className="sticky -top-24 cursor-grab overflow-visible pb-12 backdrop-blur-lg">
+                    className="cursor-grab backdrop-blur-lg">
                     <motion.div
                         drag="x"
                         dragConstraints={{

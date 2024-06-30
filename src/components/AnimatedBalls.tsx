@@ -3,18 +3,18 @@ import { blobAnimation, blobTransition } from "../utils/animation";
 
 export function AnimatedBallsSmall() {
     return (
-        <div className="container absolute inset-0 -z-20 mx-auto h-full w-full">
+        <div className="container absolute inset-0 -z-10 mx-auto h-full w-full">
             <motion.div
                 variants={blobAnimation}
                 animate="animate1"
                 transition={blobTransition}
-                className="absolute left-[20vh] top-[0vh] size-[20vh] rounded-full bg-indigo-700 mix-blend-screen blur-3xl filter"
+                className="absolute -top-2 left-[10rem] size-[20rem] rounded-full bg-indigo-700 mix-blend-screen blur-3xl filter"
             />
             <motion.div
                 variants={blobAnimation}
                 animate="animate2"
                 transition={blobTransition}
-                className="absolute left-[-5vh] top-[0vh] size-[20vh] rounded-full bg-purple-700 mix-blend-screen blur-3xl filter"
+                className="absolute -top-2 left-[-5rem] size-[20rem] rounded-full bg-purple-700 mix-blend-screen blur-3xl filter"
             />
         </div>
     );

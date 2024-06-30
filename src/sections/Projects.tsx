@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { projects } from "../data/projects";
@@ -14,7 +14,7 @@ export default function Projects() {
     const currentProject = projects[currentProjectIndex];
 
     return (
-        <>
+        <div className="overflow-clip">
             <Container className="pt-12">
                 <Heading>Projects</Heading>
             </Container>
@@ -23,12 +23,12 @@ export default function Projects() {
                 setCurrentProjectIndex={setCurrentProjectIndex}
                 projects={projects}
             />
-            <Container className="py-12">
+            <Container>
                 <section
                     className="static grid grid-cols-1 gap-2 lg:grid-cols-2 xl:grid-cols-3"
                     key={currentProjectIndex.toString()}>
                     <motion.aside
-                        className="relative flex h-fit w-full flex-col lg:sticky lg:top-36"
+                        className="relative z-0 flex h-fit w-full flex-col lg:sticky lg:top-36"
                         initial={{
                             y: 100,
                             opacity: 0,
@@ -39,7 +39,7 @@ export default function Projects() {
                         }}>
                         <img
                             loading="lazy"
-                            className="mb-6 w-full rounded object-cover"
+                            className="z-10 mb-6 w-full rounded object-cover"
                             src={currentProject.mockup}
                             alt=""
                         />
@@ -78,7 +78,7 @@ export default function Projects() {
                             </div>
                         </div>
                     </motion.aside>
-                    <section className="py-24 xl:col-span-2">
+                    <section className="z-10 py-24 xl:col-span-2">
                         <ProjectPoints type="story">
                             <p className="text-xl">
                                 {currentProject.content?.story}
@@ -109,6 +109,6 @@ export default function Projects() {
                     </section>
                 </section>
             </Container>
-        </>
+        </div>
     );
 }
