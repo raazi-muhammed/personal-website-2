@@ -1,4 +1,4 @@
-export const projects: {
+export type ProjectType = {
     name: string;
     description: string;
     date: string;
@@ -14,7 +14,9 @@ export const projects: {
         features: string[];
         teachStack: string;
     };
-}[] = [
+};
+
+export const projects: ProjectType[] = [
     {
         name: "Omniflow",
         description:

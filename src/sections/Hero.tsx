@@ -2,30 +2,8 @@ import { ReactNode, useState } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon, MailIcon } from "../utils/icons";
 import Container from "../components/Container";
-import {
-    blobAnimation,
-    blobTransition,
-    defaultAnimation,
-} from "../utils/animation";
-
-function AnimatedBalls() {
-    return (
-        <div className="container absolute inset-0 mx-auto h-screen w-full">
-            <motion.div
-                variants={blobAnimation}
-                animate="animate1"
-                transition={blobTransition}
-                className="absolute left-[20vh] top-[-40vh] size-[100vh] animate-blob rounded-full bg-indigo-700 mix-blend-screen blur-3xl filter"
-            />
-            <motion.div
-                variants={blobAnimation}
-                animate="animate1"
-                transition={blobTransition}
-                className="absolute left-[-20vh] top-[-40vh] size-[100vh] animate-blob2 rounded-full bg-purple-700 mix-blend-screen blur-3xl filter"
-            />
-        </div>
-    );
-}
+import { defaultAnimation } from "../utils/animation";
+import { AnimatedBallsHero } from "../components/AnimatedBalls";
 
 function LinkButton({
     href,
@@ -68,7 +46,7 @@ export default function Hero() {
     return (
         <div className="relative mx-auto flex min-h-screen w-full flex-col justify-between overflow-hidden p-8 py-16">
             <div className="noise pointer-events-none fixed inset-0" />
-            <AnimatedBalls />
+            <AnimatedBallsHero />
             <div className="container mx-auto flex gap-4 font-mono">
                 <p>&lt;/&gt;</p>
             </div>
