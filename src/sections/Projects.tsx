@@ -7,6 +7,16 @@ import { motion } from "framer-motion";
 import { GithubIcon, LiveLinkIcon } from "../utils/icons";
 import { FaCode, FaQuestion } from "react-icons/fa";
 import { IoSparkles } from "react-icons/io5";
+import { defaultAnimation } from "../utils/animation";
+
+function AnimatedBalls() {
+    return (
+        <div className="container absolute inset-0 -z-20 mx-auto h-full w-full">
+            <div className="absolute left-[20vh] top-[0vh] size-[20vh] animate-blob rounded-full bg-indigo-700 mix-blend-screen blur-3xl filter" />
+            <div className="absolute left-[-5vh] top-[0vh] size-[20vh] animate-blob2 rounded-full bg-purple-700 mix-blend-screen blur-3xl filter" />
+        </div>
+    );
+}
 
 function ProjectPoints({
     type,
@@ -78,10 +88,11 @@ export default function Projects() {
             <section className="sticky -top-24 flex gap-4 overflow-auto py-6 backdrop-blur-lg">
                 {projects.map((projects, index) => (
                     <motion.div
-                        initial={{ scale: 0.95 }}
-                        whileInView={{ scale: 1 }}
-                        whileTap={{ scale: 0.95 }}
-                        whileHover={{ scale: 1.05 }}
+                        variants={defaultAnimation}
+                        initial={{ opacity: 0.5, scale: 0.95 }}
+                        whileInView="animate"
+                        whileHover="hover"
+                        whileTap="tap"
                         viewport={{ amount: "all", once: true }}>
                         <Card
                             className={`w-56 p-0 ${
@@ -115,7 +126,7 @@ export default function Projects() {
                 className="static grid grid-cols-1 gap-2 lg:grid-cols-2 xl:grid-cols-3"
                 key={currentProjectIndex.toString()}>
                 <motion.aside
-                    className="flex h-fit w-full flex-col lg:sticky lg:top-36"
+                    className="relative flex h-fit w-full flex-col lg:sticky lg:top-36"
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ opacity: 1, y: 0 }}>
                     <img
@@ -124,6 +135,7 @@ export default function Projects() {
                         src={currentProject.mockup}
                         alt=""
                     />
+                    <AnimatedBalls />
                     <div className="px-4">
                         <h4 className="mt-4 font-mono text-xl">
                             {currentProject.name}

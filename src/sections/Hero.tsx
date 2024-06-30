@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon, MailIcon } from "../utils/icons";
 import Container from "../components/Container";
+import { defaultAnimation } from "../utils/animation";
 
 function AnimatedBalls() {
     return (
@@ -34,12 +35,17 @@ function LinkButton({
                     {username}
                 </motion.div>
             ) : null}
-            <div
+            <motion.div
+                variants={defaultAnimation}
+                initial="initial"
+                animate="animate"
+                whileHover="hover"
+                whileTap="tap"
                 onMouseEnter={() => setIsActive(true)}
                 onMouseLeave={() => setIsActive(false)}
                 className="animate-pulse rounded-full border border-foreground/15 bg-foreground/10 p-2 backdrop-blur-sm hover:animate-none">
                 {children}
-            </div>
+            </motion.div>
         </a>
     );
 }

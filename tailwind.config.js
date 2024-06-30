@@ -40,13 +40,13 @@ export default {
                         transform: "translate(0px, 0px) scale(1)",
                     },
                     "25%": {
-                        transform: "translate(-15vw, 40vh) scale(1.1)",
+                        transform: "translate(-15%, 40%) scale(1.1)",
                     },
                     "50%": {
-                        transform: "translate(15vw, 20vh) scale(1.3)",
+                        transform: "translate(15%, 20%) scale(1.3)",
                     },
                     "75%": {
-                        transform: "translate(5vw, 25vh) scale(1.1)",
+                        transform: "translate(5%, 25%) scale(1.1)",
                     },
                     "100%": {
                         transform: "translate(0px, 0px) scale(1)",
@@ -57,10 +57,10 @@ export default {
                         transform: "translate(0px, 0px) scale(1)",
                     },
                     "33%": {
-                        transform: "translate(25vw, 20vh) scale(1.3)",
+                        transform: "translate(25%, 20%) scale(1.3)",
                     },
                     "66%": {
-                        transform: "translate(-25vw, 25vh) scale(1.1)",
+                        transform: "translate(-25%, 25%) scale(1.1)",
                     },
                     "100%": {
                         transform: "translate(0px, 0px) scale(1)",
